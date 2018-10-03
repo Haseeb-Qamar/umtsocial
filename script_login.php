@@ -1,8 +1,8 @@
 <?php
 
 include "connection.php";
-if (isset($_POST['username'])) {
-  $uname = $_POST['username'];
+if (isset($_POST['email'])) {
+  $uname = $_POST['email'];
 }
 if (isset($_POST['password'])) {
   $password = $_POST['password'];

@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="style.css">
@@ -10,14 +11,21 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
-          <div class="loginbox text-center">
-            <div class="text-center">
-              <span id="logintext">Login</span>
+          <div class="loginbox ">
+            <div class="">
+              <span id="logintext">Create an account</span>
               <form class="" action="script_signup.php" method="post">
-                <input type="text" placeholder="UserName" name="username" value=""><br>
                 <input type="email" name="email" placeholder="Email" id=""><br>
-                <input type="password" name="password" value="" placeholder="Password"><br>
-                <input type="submit" name="" value="Login">
+                <div class="relativediv">
+                  <input class="text-left" id="user" type="text" placeholder="UserName" name="username" value=""><br>
+                  <input id="pass" type="password" name="password" value="" placeholder="Password">
+
+                  <a href=""><img src="assets/default.jpg" id="avatar" alt=""></a>
+                </div>
+                <div>
+                  <input type="submit" id="btn" name="" value="Continue">
+
+                </div>
               </form>
             </div>
 

@@ -10,6 +10,7 @@ if (isset($_GET['error'])) {
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - UMT | SOCIAL</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="style.css">
@@ -18,19 +19,26 @@ if (isset($_GET['error'])) {
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
-          <div class="loginbox text-center">
+          <div class="loginbox ">
             <div class="text-center">
               <h3 id="heading">Welcome Back!</h3>
               <span id="uppertext">We are so happy to see you again!</span>
             </div>
             <form class="" action="script_login.php" method="post">
-              <input type="text" placeholder="UserName" name="username" autocomplete="off" value=""><br>
-              <input type="password" name="password" value="" placeholder="Password"><br>
-              <input type="submit" id="btn" name="" value="Login" class="btn btn-dark">
+              <input type="email" placeholder="Email" name="email" autocomplete="off" value=""><br>
+              <input type="password" name="password" value="" placeholder="Password">
+              <div class="">
+                <input type="submit" id="btn" name="" value="Login" class="">
+
+              </div>
             </form>
-            <a href="signup.html">Don't Have an account?</a>
+            <span id="linktext">
+              Need an account? <a href="signup.html">Register</a>
+
+            </span>
+
             <br>
-<span id="msg" class="text-danger"></span>
+<span id="msg" class="text-danger">&nbsp</span>
           </div>
 
         </div>
@@ -40,7 +48,7 @@ if (isset($_GET['error'])) {
       function check(){
         var msg = <?php echo $error; ?>;
         if (msg == '1') {
-          document.getElementById('msg').innerHTML = "Invalid User Name";
+          document.getElementById('msg').innerHTML = "Invalid Email or Password";
         }
 
       }
