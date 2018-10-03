@@ -10,8 +10,13 @@ if (isset($_POST['email'])) {
   $password = $_POST['password'];
 }
 echo $uname . $email . $password ;
-$sql = "INSERT INTO users(username,password) values('$uname','$password') ";
-$result = mysqli_query($conn,$sql);
- 
+$sql = "INSERT INTO users(username,email,password) values('$uname','$email','$password') ";
+$result = mysqli_query($conn,$sql) or die($conn->error);
+if ($result == TRUE) {
 header("Location:dashboard.php");
+}
+else {
+  echo "phadda";
+}
+
  ?>

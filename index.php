@@ -16,34 +16,37 @@ if (isset($_GET['error'])) {
     <link rel="stylesheet" href="style.css">
   </head>
   <body onload="check()">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="loginbox ">
-            <div class="text-center">
-              <h3 id="heading">Welcome Back!</h3>
-              <span id="uppertext">We are so happy to see you again!</span>
-            </div>
-            <form class="" action="script_login.php" method="post">
-              <input type="email" placeholder="Email" name="email" autocomplete="off" value=""><br>
-              <input type="password" name="password" value="" placeholder="Password">
-              <div class="">
-                <input type="submit" id="btn" name="" value="Login" class="">
-
+    <div class="bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="loginbox ">
+              <div class="text-center">
+                <h3 id="heading">Welcome Back!</h3>
+                <span id="uppertext">We are so happy to see you again!</span>
               </div>
-            </form>
-            <span id="linktext">
-              Need an account? <a href="signup.html">Register</a>
+              <form class="" action="script_login.php" method="post">
+                <input type="email" placeholder="Email" name="email" autocomplete="off" value=""><br>
+                <input type="password" name="password" value="" placeholder="Password">
+                <div class="">
+                  <input type="submit" id="btn" name="" value="Login" class="">
 
-            </span>
+                </div>
+              </form>
+              <span id="linktext">
+                Need an account? <a href="signup.html">Register</a>
 
-            <br>
-<span id="msg" class="text-danger">&nbsp</span>
+              </span>
+
+              <br>
+      <span id="msg" class="text-danger">&nbsp</span>
+            </div>
+
           </div>
+      </div>
+      </div>
+    </div>
 
-        </div>
-    </div>
-    </div>
     <script type="text/javascript">
       function check(){
         var msg = <?php echo $error; ?>;
