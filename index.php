@@ -10,7 +10,7 @@ if (isset($_GET['error'])) {
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Login - UMT | SOCIAL</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="style.css">
   </head>
@@ -20,12 +20,13 @@ if (isset($_GET['error'])) {
         <div class="col-sm-12">
           <div class="loginbox text-center">
             <div class="text-center">
-              Login
+              <h3 id="heading">Welcome Back!</h3>
+              <span id="uppertext">We are so happy to see you again!</span>
             </div>
             <form class="" action="script_login.php" method="post">
-              <input type="text" placeholder="UserName" name="username" value=""><br>
+              <input type="text" placeholder="UserName" name="username" autocomplete="off" value=""><br>
               <input type="password" name="password" value="" placeholder="Password"><br>
-              <input type="submit" name="" value="Login">
+              <input type="submit" id="btn" name="" value="Login" class="btn btn-dark">
             </form>
             <a href="signup.html">Don't Have an account?</a>
             <br>
