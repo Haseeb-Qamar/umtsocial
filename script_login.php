@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include "connection.php";
 if (isset($_POST['email'])) {
   $email = $_POST['email'];
@@ -14,7 +14,7 @@ $result = mysqli_query($conn,$sql) or  die($conn->error);
 $count = mysqli_num_rows($result);
 echo $count;
 if ($count == 1) {
-$_SESSION['user'] = $uname;
+$_SESSION['user'] = $email;
 header('Location:dashboard.php');
 }else{
   header('Location:index.php?error=1');
