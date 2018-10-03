@@ -1,0 +1,25 @@
+body{
+  /* background-color: black; */
+}
+.loginbox{
+  padding: 25px;
+  background-color: rgba(40, 43, 48, .5);
+  border: 1px solid white;
+  width: 320px;
+  margin: 0 auto;
+  border-radius: 1em;
+  margin-top: 10px;
+}
+input{
+  /* display: block; */
+  border-radius: 1em;
+  border: none;
+  padding: 5px;
+  margin-top: 10px;
+  width: 100%;
+
+}
+#logintext{
+  /* background-color: pink; */
+  font-size: 28px;
+}
