@@ -1,2 +1,2 @@
 # umtsocial
-The meglected FYP .
+The neglected FYP .
