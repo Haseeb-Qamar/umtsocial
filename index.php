@@ -53,6 +53,9 @@ if (isset($_GET['error'])) {
         if (msg == '1') {
           document.getElementById('msg').innerHTML = "Invalid Email or Password";
         }
+        if (msg == '2') {
+          document.getElementById('msg').innerHTML = "You are not logged in!";
+        }
 
       }
     </script>

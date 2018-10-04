@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Signup - UMT | SOCIAL</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="style.css">
   </head>
@@ -15,13 +15,14 @@
             <div class="loginbox ">
               <div class="">
                 <span id="logintext">Create an account</span>
-                <form class="" action="script_signup.php" method="post">
-                  <input type="email" name="email" placeholder="Email" id=""><br>
+                <form class="" action="script_signup.php" method="post" onsubmit="return redirect()">
+                  <input id="email" onfocusout="fix(this,this.value)" onkeyup="validateEmail(this.value)" type="email" name="email" placeholder="Email" id=""><br>
                   <div class="relativediv">
                     <input class="text-left" id="user" type="text" placeholder="UserName" name="username" value=""><br>
                     <input id="pass" type="password" name="password" value="" placeholder="Password">
 
-                    <a href=""><img src="assets/default.jpg" id="avatar" alt=""></a>
+
+                    <div><img src="assets/default.jpg" id="avatar" alt=""></div>
                   </div>
                   <div>
                     <input type="submit" id="btn" name="" value="Continue">
@@ -29,13 +30,67 @@
                   </div>
                 </form>
               </div>
-
+          <span id="test"></span>
               <a href="index.php">Already Have an account?</a>
             </div>
           </div>
       </div>
-      </div>  
+      </div>
     </div>
+<script type="text/javascript">
 
+
+var status = 0;
+function redirect(){
+  if (status == 2) {
+       return true;
+     }
+     if (status == 1) {
+       alert("Error! Email Already Registered.");
+       return false;
+     }
+   }
+
+  function fix(value,length){
+    if(length.length == 0){
+
+      value.style.border = "1px solid rgba(40, 43, 48, 1)";
+    }
+    if(length.length > 0 && status == 1){
+
+      value.style.border = "1px solid red";
+    }
+    if(length.length > 0 && status == 2){
+
+      value.style.border = "1px solid green";
+    }
+  }
+  function validateEmail(value){
+    var emailobj = document.getElementById('email');
+    var email = document.getElementById('email').value;
+    var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function(){
+          if(this.readyState == 4 && this.status == 200){
+            if (this.responseText == 'no') {
+              // document.write(value);
+
+              emailobj.style.border = "1px solid red";
+              status = 1;
+              // document.getElementById('test').innerHTML = status;
+            }
+             if(this.responseText == 'yes') {
+
+              emailobj.style.border = "1px solid green";
+              status = 2;
+              // document.getElementById('test').innerHTML = status;
+            }
+
+          }
+
+        };
+        xmlhttp.open("GET", "async_email.php?q=" + value, true);
+        xmlhttp.send();
+  }
+</script>
   </body>
 </html>

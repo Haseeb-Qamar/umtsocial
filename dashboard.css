@@ -1,0 +1,8 @@
+.col-sm-2, .col-sm-8{
+  padding: 0px;
+}
+.onlinecol{
+  padding: 20px;
+  padding-top: 0px;
+  border: 1px solid black;
+}
