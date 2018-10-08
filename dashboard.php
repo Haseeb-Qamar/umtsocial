@@ -75,7 +75,7 @@ if (!isset($_SESSION['user'])) {
             $query = "SELECT * FROM server_members WHERE user_id='".$_SESSION['user']."'";
             $getservermembers = mysqli_query($conn, $query) or die($conn->error);
             while ($row = mysqli_fetch_assoc($getservermembers)) {
-            echo "<div id='servers' class='themedtextdark'><a href='#'>".$row['server_name']."</a></div>";
+            echo "<div id='servers' class='themedtextdark'><a href='dashboard.php?server_convo=".$row['server_id']."&server_name=".$row['server_name']."'>".$row['server_name']."</a></div>";
             }
 
              ?>
@@ -137,9 +137,13 @@ if (!isset($_SESSION['user'])) {
               $person = $_GET['person'];
                 // echo $user;
               echo "<span id='headertext'>@$person </span>";
+            }elseif(isset($_GET['server_convo'])){
+              $serverid = $_GET['server_convo'];
+              echo "@".$_GET['server_name'];
             }else{
               $user = 0;
               echo "<span id='headertext'>Select Someone to Chat.</span>";
+
             }
 
              ?>
@@ -166,6 +170,18 @@ if (!isset($_SESSION['user'])) {
                 echo "  <div class='output' id='test'>
 
                   </div>";
+               }elseif(isset($_GET['server_convo'])){
+                 $user = 0;
+                 $serverid = $_GET['server_convo'];
+                 $sql = "SELECT * FROM server_chats WHERE sid = '$serverid'";
+                 $server_cahts = mysqli_query($conn,$sql) or die($conn->error);
+                 while ($row = mysqli_fetch_assoc($server_cahts)) {
+                   echo "<div class='fullmessage'><span id='' class='sender'>".$row['user_name']."</span><span id='' class='chatmessage'>".$row['content']."</span></div>";
+                 }
+               }else{
+                 $user = 0;
+                 echo "<span id='headertext'>Select Someone to Chat.</span>";
+
                }
 ?>
              </div>

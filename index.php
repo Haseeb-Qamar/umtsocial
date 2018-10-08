@@ -30,7 +30,7 @@ if (isset($_GET['error'])) {
                 <input type="password" name="password" value="" placeholder="Password">
                 <div class="">
                   <input type="submit" id="btn" name="" value="Login" class="">
-
+                  <span style="color: rgb(114, 137, 218);" id=" ">I am an Admin</span> <input type="checkbox" name="admincheck" value="admin">
                 </div>
               </form>
               <span id="linktext">
