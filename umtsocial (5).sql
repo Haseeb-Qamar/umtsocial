@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 08, 2018 at 03:49 PM
+-- Generation Time: Oct 09, 2018 at 05:51 PM
 -- Server version: 5.7.23-0ubuntu0.16.04.1
 -- PHP Version: 7.0.32-0ubuntu0.16.04.1
 
@@ -40,7 +40,9 @@ CREATE TABLE `chat` (
 
 INSERT INTO `chat` (`c_id`, `user1_email`, `user2_email`, `user_name1`, `user_name2`) VALUES
 (1, 'haseeb@gmail.com', 'ahmad@gmail.com', 'HaseebQamar', 'AhmadJamal'),
-(2, 'haseeb@gmail.com', 'jalal@gmail.com', 'HaseebQamar', 'JalalKhan');
+(2, 'haseeb@gmail.com', 'jalal@gmail.com', 'HaseebQamar', 'JalalKhan'),
+(24, 'jalal@gmail.com', 'ahmad@gmail.com', 'JalalKhan', 'AhmadJamal'),
+(25, 'fakhar@gmail.com', 'haseeb@gmail.com', 'FakharAbbas', 'HaseebQamar');
 
 -- --------------------------------------------------------
 
@@ -92,7 +94,16 @@ INSERT INTO `chat_details` (`chatid`, `c_id`, `sender_email`, `sender_name`, `co
 (89, 1, 'ahmad@gmail.com', 'AhmadJamal', 'ajgshdhjagdhgajshdjhagsdhgajghdjhgasdajghsdhgsdhahgsdhashdjahgsdjhajghdjhagdhgashgdjasgdhgjahsdjagdgajshdhgasdgjagsdj', '13:43:19'),
 (90, 2, 'jalal@gmail.com', 'JalalKhan', 'shit', '13:47:01'),
 (91, 2, 'haseeb@gmail.com', 'HaseebQamar', 'bitch', '13:47:12'),
-(92, 1, 'ahmad@gmail.com', 'AhmadJamal', 'Testing', '14:50:58');
+(92, 1, 'ahmad@gmail.com', 'AhmadJamal', 'Testing', '14:50:58'),
+(93, 1, 'ahmad@gmail.com', 'AhmadJamal', 'Dude', '15:59:47'),
+(94, 1, 'ahmad@gmail.com', 'AhmadJamal', 'i am stupid', '16:53:34'),
+(95, 2, 'jalal@gmail.com', 'JalalKhan', 'kamina', '17:45:57'),
+(96, 1, 'ahmad@gmail.com', 'AhmadJamal', 'fuck this shit', '22:04:58'),
+(111, 24, 'ahmad@gmail.com', 'Admin', 'Chat Started', '00:11:55'),
+(112, 24, 'ahmad@gmail.com', 'AhmadJamal', 'i am jamal', '00:12:18'),
+(113, 24, 'jalal@gmail.com', 'JalalKhan', 'i am jalal', '00:12:30'),
+(114, 25, 'haseeb@gmail.com', 'Admin', 'Chat Started', '16:32:18'),
+(115, 25, 'haseeb@gmail.com', 'HaseebQamar', 'i hate you', '16:32:47');
 
 -- --------------------------------------------------------
 
@@ -128,14 +139,6 @@ CREATE TABLE `online` (
   `timestamp` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `online`
---
-
-INSERT INTO `online` (`id`, `email`, `username`, `timestamp`) VALUES
-(2, 'ahmad@gmail.com', 'AhmadJamal', NULL),
-(3, 'haseeb@gmail.com', 'HaseebQamar', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -144,16 +147,38 @@ INSERT INTO `online` (`id`, `email`, `username`, `timestamp`) VALUES
 
 CREATE TABLE `servers` (
   `server_id` int(11) NOT NULL,
-  `server_name` varchar(50) NOT NULL
+  `server_name` varchar(50) NOT NULL,
+  `server_desc` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `servers`
 --
 
-INSERT INTO `servers` (`server_id`, `server_name`) VALUES
-(1, 'Dhushie'),
-(2, 'Pushie');
+INSERT INTO `servers` (`server_id`, `server_name`, `server_desc`) VALUES
+(1, 'Dhushie', NULL),
+(2, 'Pushie', NULL),
+(3, 'pubg', 'paid app');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `server_chats`
+--
+
+CREATE TABLE `server_chats` (
+  `sid` int(11) NOT NULL,
+  `user_email` varchar(50) NOT NULL,
+  `content` varchar(200) NOT NULL,
+  `user_name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `server_chats`
+--
+
+INSERT INTO `server_chats` (`sid`, `user_email`, `content`, `user_name`) VALUES
+(1, 'ahmad@gmail.com', 'sickhead', 'AhmadJamal');
 
 -- --------------------------------------------------------
 
@@ -189,21 +214,22 @@ CREATE TABLE `users` (
   `username` varchar(20) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(20) NOT NULL,
-  `avatar` varchar(100) NOT NULL DEFAULT '0'
+  `avatar` varchar(100) NOT NULL DEFAULT '0',
+  `status` int(12) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`uid`, `username`, `email`, `password`, `avatar`) VALUES
-(12, 'HaseebQamar', 'haseeb@gmail.com', 'haseeb', '0'),
-(13, 'AhmadJamal', 'ahmad@gmail.com', 'ahmad', '0'),
-(14, 'JalalKhan', 'jalal@gmail.com', 'jalal', '0'),
-(15, 'MuhammadUsman', 'usman@gmail.com', 'usman', '0'),
-(16, 'AsadSaleem', 'asad@gmail.com', 'asad', '0'),
-(17, 'FakharAbbas', 'fakhar@gmail.com', 'fakhar', '0'),
-(18, 'WajahatHussain', 'wajahat@gmail.com', 'wajahat', '0');
+INSERT INTO `users` (`uid`, `username`, `email`, `password`, `avatar`, `status`) VALUES
+(12, 'HaseebQamar', 'haseeb@gmail.com', 'haseeb', '0', 0),
+(13, 'AhmadJamal', 'ahmad@gmail.com', 'ahmad', '0', 0),
+(14, 'JalalKhan', 'jalal@gmail.com', 'jalal', '0', 1),
+(15, 'MuhammadUsman', 'usman@gmail.com', 'usman', '0', 0),
+(16, 'AsadSaleem', 'asad@gmail.com', 'asad', '0', 0),
+(17, 'FakharAbbas', 'fakhar@gmail.com', 'fakhar', '0', 0),
+(18, 'WajahatHussain', 'wajahat@gmail.com', 'wajahat', '0', 0);
 
 --
 -- Indexes for dumped tables
@@ -243,6 +269,13 @@ ALTER TABLE `servers`
   ADD KEY `server_id` (`server_id`);
 
 --
+-- Indexes for table `server_chats`
+--
+ALTER TABLE `server_chats`
+  ADD KEY `sid` (`sid`),
+  ADD KEY `user_email` (`user_email`);
+
+--
 -- Indexes for table `server_members`
 --
 ALTER TABLE `server_members`
@@ -265,12 +298,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `chat`
 --
 ALTER TABLE `chat`
-  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `chat_details`
 --
 ALTER TABLE `chat_details`
-  MODIFY `chatid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+  MODIFY `chatid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
 --
 -- AUTO_INCREMENT for table `convos`
 --
@@ -280,12 +313,12 @@ ALTER TABLE `convos`
 -- AUTO_INCREMENT for table `online`
 --
 ALTER TABLE `online`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT for table `servers`
 --
 ALTER TABLE `servers`
-  MODIFY `server_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `server_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `server_members`
 --
@@ -305,6 +338,13 @@ ALTER TABLE `users`
 --
 ALTER TABLE `chat_details`
   ADD CONSTRAINT `chat_details_ibfk_1` FOREIGN KEY (`c_id`) REFERENCES `chat` (`c_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `server_chats`
+--
+ALTER TABLE `server_chats`
+  ADD CONSTRAINT `server_chats_ibfk_1` FOREIGN KEY (`sid`) REFERENCES `servers` (`server_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `server_chats_ibfk_2` FOREIGN KEY (`user_email`) REFERENCES `users` (`email`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `server_members`

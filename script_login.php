@@ -14,8 +14,9 @@ if(isset($_POST['admincheck']))
   // admin's dash
   // admin username = admin@gmail.com
   // admin password = admin
+  echo $email.$password;
   if ($email == 'admin@gmail.com' && $password == 'admin') {
-    header("Location:admindash.php");
+    header("Location:admin_dash.php");
   }else{
     header("Location:index.php?error=1");
   }
@@ -24,6 +25,7 @@ if(isset($_POST['admincheck']))
 else {
   echo "not checked.";
 }
+echo $email.$password;
 $sql = "SELECT * FROM users WHERE email ='$email' AND password='$password' ";
 $result = mysqli_query($conn,$sql) or  die($conn->error);
 $count = mysqli_num_rows($result);
@@ -36,7 +38,7 @@ if ($count == 1) {
   $result = mysqli_query($conn,$sql) or  die($conn->error);
 $_SESSION['user'] = $email;
 $_SESSION['username'] = $uname;
-header('Location:dashboard.php');
+// header('Location:dashboard.php');
 }else{
 // header('Location:index.php?error=1');
 }

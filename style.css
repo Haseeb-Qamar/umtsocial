@@ -3,7 +3,7 @@ background-color: rgb(40, 43, 48);
 height: 100%;
 }
 .bg{
-  background-image: url("assets/login_bg.jpg");
+  background-image: url("assets/bg.jpg");
   background-repeat: no-repeat;
   background-color: rgb(40, 43, 48);
   background-size: cover;

@@ -13,7 +13,7 @@ if (isset($_GET['error'])) {
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - UMT | SOCIAL</title>
     <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="style.css">
   </head>
   <body onload="check()">
     <div class="bg">

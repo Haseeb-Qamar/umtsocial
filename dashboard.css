@@ -24,7 +24,7 @@ html,body,.container-fluid,.row{
   overflow-y: auto;
   /* border: 1px dashed lime; */
 }
-.col-sm-8, .col-sm-10 {
+.col-sm-7,.col-sm-8, .col-sm-10 {
   padding: 0px;
   background-color: rgba(49, 51, 57, 1);
   height: 100%;
@@ -104,16 +104,15 @@ html,body,.container-fluid,.row{
 
 }
 .message input[type=text]{
-  width: 90%;
+  width: 95%;
   color: rgba(117, 117, 117, 1);
   border-radius: 0.3em;
-  border-top-right-radius: 0em;
-  border-bottom-right-radius: 0em;
+
   outline: none;
  padding: 1%;
-  border: 1px solid black;
-  border-right-color:rgb(40, 43, 48);
-  background-color: rgb(40, 43, 48);
+  border: none;
+  /* border-right-color:rgb(40, 43, 48); */
+  background-color: rgb(72, 75, 81);
 
 }
 

@@ -43,7 +43,7 @@ if (!isset($_SESSION['user'])) {
       <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
           <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
-                  <a class="nav-link" href="#">Dashboard</a>
+                  <a class="nav-link" href="dashboard.php">Dashboard</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="#">Settings</a>
@@ -67,6 +67,7 @@ if (!isset($_SESSION['user'])) {
   </nav>
     <div class="container-fluid">
       <div class="row">
+<!-- Servers Section -->
         <div class="col-sm-1">
           <div class="servers text-center">
             <span class="themedtext large">Servers</span>
@@ -81,7 +82,8 @@ if (!isset($_SESSION['user'])) {
              ?>
           </div>
         </div>
-        <div class="col-sm-1">
+        <!-- User Chats Section -->
+        <div class="col-sm-2">
         <div class="onlinecol text-center">
         <span class="themedtext large">People</span>
         <hr>
@@ -89,7 +91,14 @@ if (!isset($_SESSION['user'])) {
         $sql = "SELECT username,email FROM users";
         $result = mysqli_query($conn, $sql);
         while ($row = mysqli_fetch_assoc($result) ) {
-          echo "<div class='themedtextdark'><a href='#'>".$row['username']."</a></div>";
+          if ($row['email'] == $_SESSION['user']) {
+            continue;
+          }
+          echo "<div class='themedtextdark'>
+          <a href='script_startchat.php?usermail=".$row['email']."&username=".$row['username']."'>
+          ".$row['username']."
+          </a>
+          </div>";
         }
 
         ?>
@@ -102,20 +111,11 @@ if (!isset($_SESSION['user'])) {
 
           $sql = "SELECT * FROM chat WHERE user1_email = '".$_SESSION['user']."' OR user2_email = '".$_SESSION['user']."' ";
           $result = mysqli_query($conn, $sql);
-          $result2 = mysqli_query($conn, $sql);
-
-          // echo mysqli_num_rows($result);
-          $chats = mysqli_fetch_assoc($result2);
-          if ($chats['user1_email'] == $_SESSION['user']) {
-
-            while ($row = mysqli_fetch_assoc($result) ) {
-
+          while ($row = mysqli_fetch_assoc($result)) {
+            if ($row['user1_email'] == $_SESSION['user']) {
               echo "<div class='themedtextdark'><a href='dashboard.php?convo=".$row['c_id']."&person=".$row['user_name2']."'>".$row['user_name2']."</a></div>";
             }
-          }
-          else{
-            // echo "in else";
-            while ($row = mysqli_fetch_assoc($result) ) {
+            if ($row['user2_email'] == $_SESSION['user']) {
               echo "<div class='themedtextdark'><a href='dashboard.php?convo=".$row['c_id']."&person=".$row['user_name1']."'>".$row['user_name1']."</a></div>";
             }
           }
@@ -126,7 +126,8 @@ if (!isset($_SESSION['user'])) {
         </div>
         <span  id="logout" class="text-center"><a class="text-danger" href="script_logout.php">Logout</a></span>
         </div>
-        <div class="col-sm-8" id="col">
+        <!-- Conversation Section -->
+        <div class="col-sm-7" id="col">
           <div class="chatheader">
             <?php
             if (!isset($idd)) {
@@ -149,6 +150,7 @@ if (!isset($_SESSION['user'])) {
              ?>
 
              </div>
+
              <div class="theconvo" id="theconv">
                <?php
                // echo $_SESSION['user'];
@@ -175,12 +177,17 @@ if (!isset($_SESSION['user'])) {
                  $serverid = $_GET['server_convo'];
                  $sql = "SELECT * FROM server_chats WHERE sid = '$serverid'";
                  $server_cahts = mysqli_query($conn,$sql) or die($conn->error);
+                 echo "<div class='chatbox'>";
                  while ($row = mysqli_fetch_assoc($server_cahts)) {
-                   echo "<div class='fullmessage'><span id='' class='sender'>".$row['user_name']."</span><span id='' class='chatmessage'>".$row['content']."</span></div>";
+                   echo
+                   "<span class='fullmessage'>
+                   <span id='' class='sender'>".$row['user_name'].":</span>
+                   <span id='' class='chatmessage'>".$row['content']."</span>
+                   </span></div>";
                  }
                }else{
                  $user = 0;
-                 echo "<span id='headertext'>Select Someone to Chat.</span>";
+                 echo "<div class='text-center' id='headertext'>Your Chat Will Appear Here.<br>Select a conversation to chat</div>";
 
                }
 ?>
@@ -189,7 +196,7 @@ if (!isset($_SESSION['user'])) {
 
 
                  <input type="hidden" name="cid" value="<?php echo $idd ?>">
-                 <input type="text" name="msg" autocomplete="off" id="chat" placeholder="Message" value=""><input type="button" onclick="send()" name="" value="Send" id="sendbtn">
+                 <input type="text" name="msg" autocomplete="off" id="chat" placeholder="Message " value="">
 
              </div>
 
@@ -209,6 +216,9 @@ if (!isset($_SESSION['user'])) {
       </div>
     </div>
     <script type="text/javascript">
+    window.onbeforeunload= function(){
+      window.Location.href = "script_logout.php";
+    };
     setInterval(function(){updateonline()},3000);
     setInterval(function(){updatechat()},1000);
     var usermessage = document.getElementById('chat');
