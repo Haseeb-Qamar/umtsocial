@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 09, 2018 at 05:51 PM
+-- Generation Time: Oct 22, 2018 at 11:58 AM
 -- Server version: 5.7.23-0ubuntu0.16.04.1
 -- PHP Version: 7.0.32-0ubuntu0.16.04.1
 
@@ -42,7 +42,9 @@ INSERT INTO `chat` (`c_id`, `user1_email`, `user2_email`, `user_name1`, `user_na
 (1, 'haseeb@gmail.com', 'ahmad@gmail.com', 'HaseebQamar', 'AhmadJamal'),
 (2, 'haseeb@gmail.com', 'jalal@gmail.com', 'HaseebQamar', 'JalalKhan'),
 (24, 'jalal@gmail.com', 'ahmad@gmail.com', 'JalalKhan', 'AhmadJamal'),
-(25, 'fakhar@gmail.com', 'haseeb@gmail.com', 'FakharAbbas', 'HaseebQamar');
+(25, 'fakhar@gmail.com', 'haseeb@gmail.com', 'FakharAbbas', 'HaseebQamar'),
+(26, 'wajahat@gmail.com', 'ahmad@gmail.com', 'WajahatHussain', 'AhmadJamal'),
+(27, 'usman@gmail.com', 'ahmad@gmail.com', 'MuhammadUsman', 'AhmadJamal');
 
 -- --------------------------------------------------------
 
@@ -103,7 +105,22 @@ INSERT INTO `chat_details` (`chatid`, `c_id`, `sender_email`, `sender_name`, `co
 (112, 24, 'ahmad@gmail.com', 'AhmadJamal', 'i am jamal', '00:12:18'),
 (113, 24, 'jalal@gmail.com', 'JalalKhan', 'i am jalal', '00:12:30'),
 (114, 25, 'haseeb@gmail.com', 'Admin', 'Chat Started', '16:32:18'),
-(115, 25, 'haseeb@gmail.com', 'HaseebQamar', 'i hate you', '16:32:47');
+(115, 25, 'haseeb@gmail.com', 'HaseebQamar', 'i hate you', '16:32:47'),
+(116, 24, 'ahmad@gmail.com', 'AhmadJamal', 'just checking', '22:35:21'),
+(118, 1, 'ahmad@gmail.com', 'AhmadJamal', 'i am a bitch', '22:53:34'),
+(119, 24, 'ahmad@gmail.com', 'AhmadJamal', 'testing', '01:36:30'),
+(120, 1, 'ahmad@gmail.com', 'AhmadJamal', 'testing again', '01:36:38'),
+(121, 26, 'ahmad@gmail.com', 'Admin', 'Chat Started', '14:51:45'),
+(122, 26, 'ahmad@gmail.com', 'AhmadJamal', 'Hi Wajahat? How are you?', '14:51:55'),
+(123, 26, 'ahmad@gmail.com', 'AhmadJamal', 'My man?', '14:51:57'),
+(124, 1, 'haseeb@gmail.com', 'HaseebQamar', 'fucking shitface', '16:10:31'),
+(125, 1, 'ahmad@gmail.com', 'AhmadJamal', 'lol', '21:39:50'),
+(126, 24, 'ahmad@gmail.com', 'AhmadJamal', 'check', '21:47:15'),
+(127, 1, 'ahmad@gmail.com', 'AhmadJamal', 'this is a long message text to see how the new layout adopts to it i would really like to see this work but i dont think it will but anyhow i am hopefull for it work', '23:41:34'),
+(128, 24, 'ahmad@gmail.com', 'AhmadJamal', 'Hello.', '13:52:55'),
+(129, 1, 'ahmad@gmail.com', 'AhmadJamal', 'my feet smell', '19:22:05'),
+(130, 27, 'ahmad@gmail.com', 'Admin', 'Chat Started', '19:22:29'),
+(131, 27, 'ahmad@gmail.com', 'AhmadJamal', 'hello', '19:22:56');
 
 -- --------------------------------------------------------
 
@@ -167,18 +184,26 @@ INSERT INTO `servers` (`server_id`, `server_name`, `server_desc`) VALUES
 --
 
 CREATE TABLE `server_chats` (
+  `entry_id` int(11) NOT NULL,
   `sid` int(11) NOT NULL,
   `user_email` varchar(50) NOT NULL,
   `content` varchar(200) NOT NULL,
-  `user_name` varchar(50) NOT NULL
+  `user_name` varchar(50) NOT NULL,
+  `sent_time` time DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `server_chats`
 --
 
-INSERT INTO `server_chats` (`sid`, `user_email`, `content`, `user_name`) VALUES
-(1, 'ahmad@gmail.com', 'sickhead', 'AhmadJamal');
+INSERT INTO `server_chats` (`entry_id`, `sid`, `user_email`, `content`, `user_name`, `sent_time`) VALUES
+(2, 1, 'ahmad@gmail.com', 'i am a pinhead', 'AhmadJamal', '22:47:36'),
+(3, 1, 'ahmad@gmail.com', 'hello', 'AhmadJamal', '23:49:16'),
+(4, 1, 'jalal@gmail.com', 'i am jalal', 'JalalKhan', '23:52:04'),
+(5, 1, 'ahmad@gmail.com', 'okay', 'AhmadJamal', '00:06:38'),
+(6, 1, 'haseeb@gmail.com', '-_-', 'HaseebQamar', '01:46:26'),
+(7, 1, 'ahmad@gmail.com', 'I love myself more than I love anything.', 'AhmadJamal', '14:52:26'),
+(8, 1, 'ahmad@gmail.com', 'i was drunk :(', 'AhmadJamal', '00:20:45');
 
 -- --------------------------------------------------------
 
@@ -190,18 +215,19 @@ CREATE TABLE `server_members` (
   `s_members_id` int(11) NOT NULL,
   `server_id` int(50) NOT NULL,
   `server_name` varchar(50) NOT NULL,
-  `user_id` varchar(50) NOT NULL
+  `user_id` varchar(50) NOT NULL,
+  `user_name` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `server_members`
 --
 
-INSERT INTO `server_members` (`s_members_id`, `server_id`, `server_name`, `user_id`) VALUES
-(1, 1, 'Dhushie', 'haseeb@gmail.com'),
-(3, 1, 'Dhushie', 'ahmad@gmail.com'),
-(4, 1, 'Dhushie', 'jalal@gmail.com'),
-(5, 2, 'Pushie', 'ahmad@gmail.com');
+INSERT INTO `server_members` (`s_members_id`, `server_id`, `server_name`, `user_id`, `user_name`) VALUES
+(1, 1, 'Dhushie', 'haseeb@gmail.com', 'HaseebQamar'),
+(3, 1, 'Dhushie', 'ahmad@gmail.com', 'AhmadJamal'),
+(4, 1, 'Dhushie', 'jalal@gmail.com', 'JalalKhan'),
+(5, 2, 'Pushie', 'ahmad@gmail.com', 'AhmadJamal');
 
 -- --------------------------------------------------------
 
@@ -272,6 +298,7 @@ ALTER TABLE `servers`
 -- Indexes for table `server_chats`
 --
 ALTER TABLE `server_chats`
+  ADD PRIMARY KEY (`entry_id`),
   ADD KEY `sid` (`sid`),
   ADD KEY `user_email` (`user_email`);
 
@@ -298,12 +325,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `chat`
 --
 ALTER TABLE `chat`
-  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT for table `chat_details`
 --
 ALTER TABLE `chat_details`
-  MODIFY `chatid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
+  MODIFY `chatid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
 --
 -- AUTO_INCREMENT for table `convos`
 --
@@ -313,12 +340,17 @@ ALTER TABLE `convos`
 -- AUTO_INCREMENT for table `online`
 --
 ALTER TABLE `online`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `servers`
 --
 ALTER TABLE `servers`
   MODIFY `server_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `server_chats`
+--
+ALTER TABLE `server_chats`
+  MODIFY `entry_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `server_members`
 --
