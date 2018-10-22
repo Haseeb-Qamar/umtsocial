@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 22, 2018 at 11:58 AM
+-- Generation Time: Oct 22, 2018 at 09:45 PM
 -- Server version: 5.7.23-0ubuntu0.16.04.1
 -- PHP Version: 7.0.32-0ubuntu0.16.04.1
 
@@ -68,59 +68,12 @@ CREATE TABLE `chat_details` (
 INSERT INTO `chat_details` (`chatid`, `c_id`, `sender_email`, `sender_name`, `content`, `sent_time`) VALUES
 (62, 2, 'haseeb@gmail.com', 'HaseebQamar', 'Dummy Entry', '02:50:08'),
 (63, 1, 'haseeb@gmail.com', 'HaseebQamar', 'Dummy ENtry', '02:50:18'),
-(64, 1, 'ahmad@gmail.com', 'AhmadJamal', 'I am stupid', '03:42:59'),
-(65, 1, 'ahmad@gmail.com', 'AhmadJamal', 'Hello boy.', '13:35:48'),
-(66, 1, 'ahmad@gmail.com', 'AhmadJamal', 'Hello boy.', '13:36:01'),
-(67, 1, 'ahmad@gmail.com', 'AhmadJamal', 'Take my words for it.', '13:36:08'),
-(68, 1, 'ahmad@gmail.com', 'AhmadJamal', 'Hi.', '13:36:57'),
-(69, 1, 'ahmad@gmail.com', 'AhmadJamal', 'Bitch.', '13:37:00'),
-(70, 1, 'ahmad@gmail.com', 'AhmadJamal', 'I am bitch.', '13:37:33'),
-(71, 1, 'ahmad@gmail.com', 'AhmadJamal', 'I am bitch.', '13:37:38'),
-(72, 1, 'ahmad@gmail.com', 'AhmadJamal', 'I am bitch.', '13:37:43'),
-(73, 1, 'haseeb@gmail.com', 'HaseebQamar', 'shut up', '13:37:55'),
-(74, 1, 'ahmad@gmail.com', 'AhmadJamal', 'You shut up', '13:38:04'),
-(75, 1, 'haseeb@gmail.com', 'HaseebQamar', 'shut the fuck up', '13:38:09'),
-(76, 1, 'haseeb@gmail.com', 'HaseebQamar', 'bitch', '13:38:58'),
-(77, 1, 'ahmad@gmail.com', 'AhmadJamal', 'For fucks sake.', '13:39:06'),
-(78, 1, 'ahmad@gmail.com', 'AhmadJamal', 'shit', '13:40:19'),
-(79, 1, 'ahmad@gmail.com', 'AhmadJamal', 'shit', '13:40:27'),
-(80, 1, 'ahmad@gmail.com', 'AhmadJamal', 'fuck', '13:40:33'),
-(81, 1, 'ahmad@gmail.com', 'AhmadJamal', 'haskdakjshdk', '13:40:41'),
-(82, 1, 'ahmad@gmail.com', 'AhmadJamal', 'hl;fkhm;kfdljhx;lf', '13:40:45'),
-(83, 1, 'ahmad@gmail.com', 'AhmadJamal', 'hello', '13:41:37'),
-(84, 1, 'ahmad@gmail.com', 'AhmadJamal', 'hi', '13:41:41'),
-(85, 1, 'haseeb@gmail.com', 'HaseebQamar', 'bitch', '13:41:48'),
-(86, 1, 'haseeb@gmail.com', 'HaseebQamar', 'shitface', '13:41:55'),
-(87, 1, 'ahmad@gmail.com', 'AhmadJamal', '55', '13:41:58'),
-(88, 1, 'ahmad@gmail.com', 'AhmadJamal', '66', '13:42:22'),
-(89, 1, 'ahmad@gmail.com', 'AhmadJamal', 'ajgshdhjagdhgajshdjhagsdhgajghdjhgasdajghsdhgsdhahgsdhashdjahgsdjhajghdjhagdhgashgdjasgdhgjahsdjagdgajshdhgasdgjagsdj', '13:43:19'),
-(90, 2, 'jalal@gmail.com', 'JalalKhan', 'shit', '13:47:01'),
-(91, 2, 'haseeb@gmail.com', 'HaseebQamar', 'bitch', '13:47:12'),
-(92, 1, 'ahmad@gmail.com', 'AhmadJamal', 'Testing', '14:50:58'),
-(93, 1, 'ahmad@gmail.com', 'AhmadJamal', 'Dude', '15:59:47'),
-(94, 1, 'ahmad@gmail.com', 'AhmadJamal', 'i am stupid', '16:53:34'),
-(95, 2, 'jalal@gmail.com', 'JalalKhan', 'kamina', '17:45:57'),
-(96, 1, 'ahmad@gmail.com', 'AhmadJamal', 'fuck this shit', '22:04:58'),
 (111, 24, 'ahmad@gmail.com', 'Admin', 'Chat Started', '00:11:55'),
-(112, 24, 'ahmad@gmail.com', 'AhmadJamal', 'i am jamal', '00:12:18'),
-(113, 24, 'jalal@gmail.com', 'JalalKhan', 'i am jalal', '00:12:30'),
 (114, 25, 'haseeb@gmail.com', 'Admin', 'Chat Started', '16:32:18'),
-(115, 25, 'haseeb@gmail.com', 'HaseebQamar', 'i hate you', '16:32:47'),
-(116, 24, 'ahmad@gmail.com', 'AhmadJamal', 'just checking', '22:35:21'),
-(118, 1, 'ahmad@gmail.com', 'AhmadJamal', 'i am a bitch', '22:53:34'),
-(119, 24, 'ahmad@gmail.com', 'AhmadJamal', 'testing', '01:36:30'),
-(120, 1, 'ahmad@gmail.com', 'AhmadJamal', 'testing again', '01:36:38'),
 (121, 26, 'ahmad@gmail.com', 'Admin', 'Chat Started', '14:51:45'),
-(122, 26, 'ahmad@gmail.com', 'AhmadJamal', 'Hi Wajahat? How are you?', '14:51:55'),
-(123, 26, 'ahmad@gmail.com', 'AhmadJamal', 'My man?', '14:51:57'),
-(124, 1, 'haseeb@gmail.com', 'HaseebQamar', 'fucking shitface', '16:10:31'),
-(125, 1, 'ahmad@gmail.com', 'AhmadJamal', 'lol', '21:39:50'),
-(126, 24, 'ahmad@gmail.com', 'AhmadJamal', 'check', '21:47:15'),
-(127, 1, 'ahmad@gmail.com', 'AhmadJamal', 'this is a long message text to see how the new layout adopts to it i would really like to see this work but i dont think it will but anyhow i am hopefull for it work', '23:41:34'),
-(128, 24, 'ahmad@gmail.com', 'AhmadJamal', 'Hello.', '13:52:55'),
-(129, 1, 'ahmad@gmail.com', 'AhmadJamal', 'my feet smell', '19:22:05'),
 (130, 27, 'ahmad@gmail.com', 'Admin', 'Chat Started', '19:22:29'),
-(131, 27, 'ahmad@gmail.com', 'AhmadJamal', 'hello', '19:22:56');
+(132, 1, 'ahmad@gmail.com', 'AhmadJamal', 'hello', '18:18:28'),
+(133, 1, 'haseeb@gmail.com', 'HaseebQamar', 'shit', '20:30:20');
 
 -- --------------------------------------------------------
 
@@ -156,6 +109,14 @@ CREATE TABLE `online` (
   `timestamp` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `online`
+--
+
+INSERT INTO `online` (`id`, `email`, `username`, `timestamp`) VALUES
+(11, 'fakhar@gmail.com', 'FakharAbbas', NULL),
+(13, 'haseeb@gmail.com', 'HaseebQamar', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -175,7 +136,8 @@ CREATE TABLE `servers` (
 INSERT INTO `servers` (`server_id`, `server_name`, `server_desc`) VALUES
 (1, 'Dhushie', NULL),
 (2, 'Pushie', NULL),
-(3, 'pubg', 'paid app');
+(3, 'pubg', 'paid app'),
+(4, 'Gaming League', 'All about gaming! Please join us!');
 
 -- --------------------------------------------------------
 
@@ -197,13 +159,12 @@ CREATE TABLE `server_chats` (
 --
 
 INSERT INTO `server_chats` (`entry_id`, `sid`, `user_email`, `content`, `user_name`, `sent_time`) VALUES
-(2, 1, 'ahmad@gmail.com', 'i am a pinhead', 'AhmadJamal', '22:47:36'),
 (3, 1, 'ahmad@gmail.com', 'hello', 'AhmadJamal', '23:49:16'),
-(4, 1, 'jalal@gmail.com', 'i am jalal', 'JalalKhan', '23:52:04'),
 (5, 1, 'ahmad@gmail.com', 'okay', 'AhmadJamal', '00:06:38'),
-(6, 1, 'haseeb@gmail.com', '-_-', 'HaseebQamar', '01:46:26'),
-(7, 1, 'ahmad@gmail.com', 'I love myself more than I love anything.', 'AhmadJamal', '14:52:26'),
-(8, 1, 'ahmad@gmail.com', 'i was drunk :(', 'AhmadJamal', '00:20:45');
+(9, 1, 'ahmad@gmail.com', 'hi', 'AhmadJamal', '18:49:59'),
+(14, 2, 'ahmad@gmail.com', 'check', 'AhmadJamal', '20:58:31'),
+(15, 4, 'haseeb@gmail.com', 'hi everyone', 'HaseebQamar', '21:38:05'),
+(16, 4, 'ahmad@gmail.com', 'hello', 'AhmadJamal', '21:38:46');
 
 -- --------------------------------------------------------
 
@@ -227,7 +188,9 @@ INSERT INTO `server_members` (`s_members_id`, `server_id`, `server_name`, `user_
 (1, 1, 'Dhushie', 'haseeb@gmail.com', 'HaseebQamar'),
 (3, 1, 'Dhushie', 'ahmad@gmail.com', 'AhmadJamal'),
 (4, 1, 'Dhushie', 'jalal@gmail.com', 'JalalKhan'),
-(5, 2, 'Pushie', 'ahmad@gmail.com', 'AhmadJamal');
+(5, 2, 'Pushie', 'ahmad@gmail.com', 'AhmadJamal'),
+(8, 4, 'Gaming League', 'haseeb@gmail.com', 'HaseebQamar'),
+(9, 4, 'Gaming League', 'ahmad@gmail.com', 'AhmadJamal');
 
 -- --------------------------------------------------------
 
@@ -330,7 +293,7 @@ ALTER TABLE `chat`
 -- AUTO_INCREMENT for table `chat_details`
 --
 ALTER TABLE `chat_details`
-  MODIFY `chatid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
+  MODIFY `chatid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
 --
 -- AUTO_INCREMENT for table `convos`
 --
@@ -340,22 +303,22 @@ ALTER TABLE `convos`
 -- AUTO_INCREMENT for table `online`
 --
 ALTER TABLE `online`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `servers`
 --
 ALTER TABLE `servers`
-  MODIFY `server_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `server_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `server_chats`
 --
 ALTER TABLE `server_chats`
-  MODIFY `entry_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `entry_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `server_members`
 --
 ALTER TABLE `server_members`
-  MODIFY `s_members_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `s_members_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `users`
 --

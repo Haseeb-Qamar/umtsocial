@@ -13,7 +13,10 @@ $query = "SELECT * FROM chat WHERE user1_email ='$email'AND user2_email='".$_SES
 $check = mysqli_query($conn,$query);
 echo mysqli_num_rows($check);
 if (mysqli_num_rows($check) >= 1) {
-    echo "Chat Already Exists!";
+    $test = mysqli_fetch_assoc($check);
+    $chatid = $test['c_id'];
+    header("Location:dashboard.php?convo=$chatid&person=$username");
+
 }
 else {
   $sql = "INSERT INTO chat(user1_email,user2_email,user_name1,user_name2) values('$email','".$_SESSION['user']."','$username','".$_SESSION['username']."') ";

@@ -78,7 +78,7 @@ input:focus{
 }
 #btn:hover{
   cursor: pointer;
-  background-color:  pink;
+  background-color:  rgb(92, 111, 177);
 }
 /* For signup */
 
@@ -102,7 +102,7 @@ input:focus{
 }
 
 /* Media Queries  */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 700px) {
   body{
     transform: scale(1);
   }

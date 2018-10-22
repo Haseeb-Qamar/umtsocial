@@ -27,8 +27,8 @@ if (isset($_GET['error'])) {
                 <span id="uppertext">We are so happy to see you again!</span>
               </div>
               <form class="" action="script_login.php" method="post">
-                <input type="email" placeholder="Email" name="email" autocomplete="off" value=""><br>
-                <input type="password" name="password" value="" placeholder="Password">
+                <input type="email" placeholder="Email" name="email" autocomplete="off" value="" required><br>
+                <input type="password" name="password" value="" placeholder="Password" required>
                 <div class="">
                   <input type="submit" id="btn" name="" value="Login" class="">
                   <span style="color: rgb(114, 137, 218);" id=" ">I am an Admin</span> <input type="checkbox"  name="admincheck" value="admin">

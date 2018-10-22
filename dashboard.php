@@ -61,7 +61,7 @@ if (!isset($_SESSION['user'])) {
       <div class="row">
 
 <!-- Servers Section -->
-        <div class="col-sm-1">
+        <div class="col-sm-1" id="bs_server_col">
           <div class="servers text-center">
             <span class="themedtext large">Servers</span>
             <hr>
@@ -97,7 +97,7 @@ if (!isset($_SESSION['user'])) {
 
         </div>
         <!-- User Chats Section -->
-        <div class="col-sm-2">
+        <div class="col-sm-2" id="bs_server_col">
         <div class="onlinecol text-center">
         <span class="themedtext large">People</span>
         <hr>
@@ -154,10 +154,10 @@ if (!isset($_SESSION['user'])) {
               echo "<span id='headertext'>@$person </span>";
             }elseif(isset($_GET['server_convo'])){
               $serverid = $_GET['server_convo'];
-              echo "@".$_GET['server_name'];
+              echo "<span id='headertext'>@".$_GET['server_name']."</span>";
             }else{
               $user = 0;
-              echo "<span id='headertext'>Select Someone to Chat.</span>";
+              echo "<span  id='headertext'>Select Someone to Chat.</span>";
 
 
             }
@@ -217,7 +217,7 @@ if (!isset($_SESSION['user'])) {
 
         </div>
 
-        <div class="col-sm-2">
+        <div class="col-sm-2" id="bs_server_col">
             <div class="online text-center">
               <span class="themedtext large">Online</span><hr>
               <div class="" id="onlinejs">
@@ -235,6 +235,11 @@ if (!isset($_SESSION['user'])) {
 
       </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/bootstrap.js">
+
+    </script>
     <script type="text/javascript">
     window.onbeforeunload= function(){
       window.Location.href = "script_logout.php";

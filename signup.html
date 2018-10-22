@@ -16,13 +16,13 @@
               <div class="">
                 <span id="logintext">Create an account</span>
                 <form class="" action="script_signup.php" method="post" onsubmit="return redirect()">
-                  <input id="email" onfocusout="fix(this,this.value)" onkeyup="validateEmail(this.value)" type="email" name="email" placeholder="Email" id=""><br>
+                  <input id="email" onfocusout="fix(this,this.value)" onkeyup="validateEmail(this.value)" type="email" name="email" placeholder="Email" required><br>
                   <div class="relativediv">
-                    <input class="text-left" id="user" type="text" placeholder="UserName" name="username" value=""><br>
-                    <input id="pass" type="password" name="password" value="" placeholder="Password">
+                    <input class="text-left" id="user" type="text" placeholder="UserName" name="username" value="" required><br>
+                    <input id="pass" type="password" name="password" value="" placeholder="Password" required>
 
 
-                    
+
                   </div>
                   <div>
                     <input type="submit" id="btn" name="" value="Continue">

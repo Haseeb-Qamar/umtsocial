@@ -9,15 +9,9 @@ html,body,.container-fluid{
   height: 100%;
   background-color: rgba(40, 43, 48, 1);
   border: none;
-
-    /* -webkit-transform: scale(2.0);
-       -moz-transform: scale(3.67);
-            transform: scale(1); */
-
-
 }
 .row{
-  height: 90%;
+  height: 100%;
 }
 .circle{
 
@@ -57,7 +51,7 @@ html,body,.container-fluid{
 .row{
   /* border: 1px solid black; */
 
-  height: 100%;
+  height: 90%;
 
 }
 .themedtext{
@@ -65,6 +59,7 @@ html,body,.container-fluid{
 }
 .themedtextdark{
   color: rgba(117, 117, 117, 1);
+  font-size: 0.8vw;
 }
 .userchats{
   position: relative;
@@ -75,24 +70,32 @@ html,body,.container-fluid{
 }
 #logout{
   position: absolute;
-  border: 1px solid red;
+  border: 1px solid #AF3441;
   left: 0px;
-  /* border: 1px dashed teal; */
+  /* border: 1px dashed yellow; */
   background-color: rgba(49, 51, 57, 1);
   bottom: 0px;
   width: 100%;
-  height: 40%;
+  height: 35%;
+  transition-property: all;
+  transition-duration: 1s;
+}
+#logout:hover{
+  background-color: #AF3441;
+  border: 1px solid white;
+  color: white;
 }
 .loggedin{
+  /* border: 1px dotted green; */
   padding: 0px;
   display: block;
 }
 #user{
-  font-size: 14px;
+  font-size: 1.5vw;
 }
 #email{
   color: rgba(117, 117, 117, 1);
-  font-size: 10px;
+  font-size: 0.7vw;
 }
 .userinfo{
   position: absolute;
@@ -111,14 +114,16 @@ html,body,.container-fluid{
 }
 .online{
   background-color: rgb(40, 43, 48);
+  /* border: 1px dotted green; */
   z-index: 1;
   position: relative;
   height: 100%;
 }
 .chatheader{
   width: 100%;
-  padding-top: .5%;
   position: fixed;
+  padding-top: 0%;
+  color:rgba(130, 132, 136, 1);
   padding-left: 1%;
   z-index: -1;
   height: 7%;
@@ -126,7 +131,7 @@ html,body,.container-fluid{
   border-bottom: 5px solid rgb(40, 43, 48);
 }
 .large{
-  font-size: 34px;
+  font-size: 1.5vw;
 }
 .message{
   position: absolute;
@@ -141,16 +146,23 @@ html,body,.container-fluid{
 }
 .message input[type=text]{
   width: 95%;
-  color: rgba(117, 117, 117, 1);
+  color: rgba(189, 178, 178, 1);
   border-radius: 0.3em;
 
   outline: none;
  padding: 1%;
-  border: none;
-  /* border-right-color:rgb(40, 43, 48); */
+  border: 1px solid rgb(72, 75, 81);
   background-color: rgb(72, 75, 81);
-
+  transition-property: all;
+  transition-duration: 1s;
 }
+.message input[type=text]:hover{
+  border: 1px solid rgb(114, 137, 218);
+}
+.message input[type=text]:focus{
+  border: 1px solid rgb(114, 137, 218);
+}
+
 
 .message input[type=button]{
   width: 10%;
@@ -167,17 +179,16 @@ html,body,.container-fluid{
 
 }
 #headertext{
+
   color:rgba(130, 132, 136, 1);
-  font-size: 28px;
+  font-size: 2vw;
 
 }
 #emptyicon{
   width: 50%;
 }
 .sender{
-  /* background-color: pink; */
-
-  font-size: 12px;
+font-size: 12px;
 color :rgb(114, 137, 218);
 
 }
@@ -202,57 +213,32 @@ color :rgb(114, 137, 218);
 
 }
 .chatmessage{
- /* border: 1px solid var(--dark); */
-
-color: rgba(117, 117, 117, 1);;
+ color: rgba(117, 117, 117, 1);
  background-color: #282B30;
  font-size: 14px;
-
-
-
-
 }
 .chatbox{
 width: 90% ;
-/* border: 1px dotted green; */
-
-
-/* border: 1px solid pink; */
   color: white;
-
 }
 .fullmessage{
-/* background-color: rgb(11, 64, 210); */
-
-/* border: 1px solid blue; */
 width: 100%;
+}
 
-/* border-radius: 1em; */
-}
-.fullmessage1{
-  background-color: rgb(140, 143, 148);
-  padding: 20px;
-  /* border: 1px solid blue; */
-  width: 1px;
-  border-radius: 1em;
-}
 .theconvos{
-  /* background-color: azure; */
-  /* border: 1px dotted red; */
   width: 100%;
   height: 10%;
+  /* border: 1px dotted orange; */
 }
 .theconvo{
-  /* position: relative; */
-  /* border: 1px dotted blue; */
-  padding-top: 5%;
-  height: 85%;
+  margin-top: 6%;
+  height: 75%;
   z-index: -3;
-
+  border-bottom: 2px solid #282B30;
 }
 .output{
-  /* background-color: gray; */
   overflow-y: auto;
+  /* border: 1px dotted red; */
 }
 #time{
   font-size: 8px;
@@ -260,15 +246,14 @@ width: 100%;
 }
 #test {
     max-height: 100%;
-
     overflow: auto;
+    /* border: 1px dotted teal; */
 }
 .servers{
-  /* background-color: var(--dark); */
   height: 50%;
 }
 #servers{
-  font-size: 12px;
+
 
 }
 .server_members{
@@ -276,7 +261,7 @@ width: 100%;
   color: rgba(117, 117, 117, 1);
 }
 .server_member_name{
-
+  font-size: 0.7vw;
 }
 a{
   color: rgb(114, 137, 218);
@@ -362,80 +347,44 @@ color: inherit;
 }
 /* Media Query */
 
-@media screen and (max-width: 1366px) {
-  html,body,.container-fluid{
-    height: 100%;
-  }
-  .row{
-    height: 90%;
-
-  }
-  .large{
-    font-size: 18px;
-  }
-  .chatheader{
-
-    z-index: -1;
-  padding-top: .5%;
-  height: 7%;
+@media screen and (min-width: 1367px) {
+  .theconvo{
+    margin-top: 1%;
   }
   #headertext{
 
-
-    font-size: 16px;
   }
-  .onlinecol{
-
-    font-size: 12px;
-  }
-  .online{
-  font-size: 12px;
-
-  position: relative;
+}
+@media screen and (min-width: 1367px) {
+  .chatheader{
+    position: inherit;
 
   }
-  .userchats{
 
-    font-size: 12px;
-  }
-  /* .chatbox{
-    font-size: 14px;
-    padding: 10px;
-
-
-
-  }
+}
+@media screen and (max-width: 600px) {
   .theconvo{
-    padding-top: 5%;
-
-
+    margin-top: 20%;
   }
-  .theconvos{
-
+  .themedtextdark{
+    font-size: 12px;
   }
-  .fullmessage{
-    padding: 1%;
-
-
+  #user{
+    font-size: 12px;
   }
-  .fullmessage1{
-    background-color: rgb(140, 143, 148);
-    padding: 1%;
-
-    border-radius: 1em;
+  #email{
+    font-size: 12px;
   }
-  #time{
-    font-size: 8px;
-    margin-top: 1%;
-
-  } */
-  .sender1{
-
+  #headertext{
+    font-size: 24px;
   }
-  #servers{
-font-size: 12px;
+  .large{
+    font-size: 12px;
+  }
+  #bs_server_col{
+    display: none;
   }
   .server_member_name{
-  font-size: 12px;
+    font-size: 12px;
   }
 }
