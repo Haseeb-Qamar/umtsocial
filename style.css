@@ -2,8 +2,12 @@ body,html{
 background-color: rgb(40, 43, 48);
 height: 100%;
 }
+#loginlogo{
+  position: absolute;
+  width: 15%;
+}
 .bg{
-  background-image: url("assets/bg.jpg");
+  background-image: url("assets/bg3.png");
   background-repeat: no-repeat;
   background-color: rgb(40, 43, 48);
   background-size: cover;
@@ -79,7 +83,7 @@ input:focus{
 /* For signup */
 
 #user , #pass{
-  width: 70%;
+  width: 100%;
 
 
 }

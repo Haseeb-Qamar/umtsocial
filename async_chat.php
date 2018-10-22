@@ -33,25 +33,40 @@ echo "<div class='theconvos'>";
     <div class='chatbox'>";
     if ($row['sender_name'] == $_SESSION['username']) {
       echo "
-      <span class='fullmessage1'>
 
-      <span class='sender'>".$row['sender_name'].":</span>
-      <span class='chatmessage'>".$row['content']."</span>
+      <div class='chatwrapper'>
+      <span class='sender'>You:</span>
+<span id='time'>".$row['sent_time']."</span>
+<br>
+      <div class='fullmessage'>
+      <span class='chatmessage'>"
+      .$row['content'].
+      "</span>
+      </div>
+      </div>
 
-      <span id='time'>".$row['sent_time']."</span>
-      </span>
+
+
 
       </div>
       ";
     }else{
       echo "
-      <span class='fullmessage'>
+
+      <div class='chatwrapper1'>
 
       <span class='sender'>".$row['sender_name'].":</span>
-      <span class='chatmessage'>".$row['content']."</span>
-
       <span id='time'>".$row['sent_time']."</span>
-      </span>
+      <br>
+      <div class='fullmessage'>
+
+      <span class='chatmessage'>"
+      .$row['content']."</span>
+      </div>
+
+
+
+      </div>
 
       </div>
 

@@ -2,13 +2,49 @@
   height: 100%;
   padding: 0px;
   margin: 0px;
-  background-color: teal;
+  /* background-color: rgb(42, 52, 61); */
   background: 1px dashed yellow;
+  z-index: 1;
+}
+.logout{
+  position: relative;
+  float :right;
 }
 .box{
-  border: 1px dotted black;
   padding: 20px;
-  background-color: teal;
   margin: 0 auto;
   height: 100%;
 }
+.bg{
+  background-image: url("assets/gears2.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  z-index: 2;
+}
+/* For Admin Ban User
+        Start
+*/
+.tablebg{
+  background-color: rgba(50,50,50,.7);
+  max-height: 80%;
+  overflow-y: auto;
+  color: white;
+}
+h1 a,td a{
+  color: white;
+}
+.table td{
+
+  border: none;
+}
+/* Admin Ban User End */
+.serverfields input[type=text]{
+  border: none;
+  outline: none;
+  padding: 1%;
+  margin-bottom: 3%;
+
+}
+/* Admin Create Servers */

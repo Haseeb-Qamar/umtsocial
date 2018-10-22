@@ -24,12 +24,12 @@ if (!isset($_SESSION['user'])) {
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: #1d1d1d;
+    background: #2F3136;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #888;
+    background: #202225;
 }
 
 /* Handle on hover */
@@ -39,34 +39,27 @@ if (!isset($_SESSION['user'])) {
 </style>
   </head>
   <body onload="test()">
-    <nav class="navbar navbar-expand-md navbar-dark" style="background-color: rgb(40, 43, 48);border-bottom:2px solid rgba(49, 51, 57, 1);">
-      <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
-          <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                  <a class="nav-link" href="dashboard.php">Dashboard</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="#">Settings</a>
-          </ul>
-      </div>
-      <div class="mx-auto order-0">
 
-          <a class="navbar-brand mx-auto" href="#">UMT | SOCIAL</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
-              <span class="navbar-toggler-icon"></span>
-          </button>
-      </div>
-      <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-          <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                  <a class="nav-link" title="Logged in as <?php echo htmlspecialchars($_SESSION['username']) ?>" href="#"><?php echo htmlspecialchars($_SESSION['username']) ?></a>
-              </li>
-
-          </ul>
-      </div>
-  </nav>
     <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg navbar navbar-dark" style="background-color: rgb(40, 43, 48);">
+        <a class="navbar-brand" href="#">
+            <img src="assets/logo.png" width="30" height="30" alt="">
+          </a>
+    <a class="navbar-brand" href="dashboard.php">UMT | SOCIAL</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="dashboard.php">Dashboard <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link " href="explore.php">Explore <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link " href="settings.php">Settings <span class="sr-only">(current)</span></a>
+
+      </div>
+    </div>
+    </nav>
       <div class="row">
+
 <!-- Servers Section -->
         <div class="col-sm-1">
           <div class="servers text-center">
@@ -80,7 +73,28 @@ if (!isset($_SESSION['user'])) {
             }
 
              ?>
+
           </div>
+          <?php
+          if (isset($_GET['server_convo'])) {
+            $sid = $_GET['server_convo'];
+            echo
+            "<div class='server_members text-center'>
+            <span class='themedtext large'>Members</span>";
+            $sql = "SELECT * FROM server_members WHERE server_id ='$sid'";
+            $result = mysqli_query($conn, $sql);
+            if ($result == TRUE) {
+              while ($row = mysqli_fetch_assoc($result)) {
+                // code...
+                echo "
+                <div class='server_member_name'>".$row['user_name']."</div>
+                ";
+              }
+            }
+            echo "</div>";
+          }
+           ?>
+
         </div>
         <!-- User Chats Section -->
         <div class="col-sm-2">
@@ -124,7 +138,7 @@ if (!isset($_SESSION['user'])) {
           ?>
 
         </div>
-        <span  id="logout" class="text-center"><a class="text-danger" href="script_logout.php">Logout</a></span>
+
         </div>
         <!-- Conversation Section -->
         <div class="col-sm-7" id="col">
@@ -145,6 +159,7 @@ if (!isset($_SESSION['user'])) {
               $user = 0;
               echo "<span id='headertext'>Select Someone to Chat.</span>";
 
+
             }
 
              ?>
@@ -158,6 +173,8 @@ if (!isset($_SESSION['user'])) {
                // echo "user 1 ".$user1;
                if (isset($_GET['convo'])) {
                  $user = $_GET['convo'];
+                 $serverConvo = 0;
+                 $serverid = 0;
                  // echo $user;
                  $sql = "SELECT * FROM chat_details WHERE c_id = '$user' ";
 
@@ -174,21 +191,17 @@ if (!isset($_SESSION['user'])) {
                   </div>";
                }elseif(isset($_GET['server_convo'])){
                  $user = 0;
+                 $serverConvo = 1;
                  $serverid = $_GET['server_convo'];
-                 $sql = "SELECT * FROM server_chats WHERE sid = '$serverid'";
-                 $server_cahts = mysqli_query($conn,$sql) or die($conn->error);
-                 echo "<div class='chatbox'>";
-                 while ($row = mysqli_fetch_assoc($server_cahts)) {
-                   echo
-                   "<span class='fullmessage'>
-                   <span id='' class='sender'>".$row['user_name'].":</span>
-                   <span id='' class='chatmessage'>".$row['content']."</span>
-                   </span></div>";
-                 }
+                 echo "<div id='test'></div>";
+
+
                }else{
                  $user = 0;
-                 echo "<div class='text-center' id='headertext'>Your Chat Will Appear Here.<br>Select a conversation to chat</div>";
-
+                 $serverConvo = 0;
+                 $serverid = 0;
+                 echo "<div class='text-center' id='headertext'>Your Chat Will Appear Here.<br>Select a conversation to chat<br><img id='emptyicon' src='assets/login_logo2.png'></div>";
+                 echo "";
                }
 ?>
              </div>
@@ -210,6 +223,13 @@ if (!isset($_SESSION['user'])) {
               <div class="" id="onlinejs">
 
               </div>
+
+            </div>
+            <div class="userinfo">
+
+              <span id="user" class="loggedin"><?php echo $_SESSION['username'] ?></span>
+              <span id="email" class="loggedin"><?php echo $_SESSION['user'] ?></span>
+              <a class="text-danger" href="script_logout.php"><span  id="logout" class="text-center">Logout</span></a>
             </div>
         </div>
 
@@ -247,7 +267,8 @@ if (!isset($_SESSION['user'])) {
       }
       function updatechat(){
         var user = "<?php echo $user ?>";
-        if (user == 0) {
+        var server_id = <?php echo $serverConvo ?>;
+        if (user == 0 && server_id == 0) {
           return;
         }
         var xmlhttp = new XMLHttpRequest();
@@ -255,18 +276,28 @@ if (!isset($_SESSION['user'])) {
               if(this.readyState == 4 && this.status == 200){
 
                 document.getElementById('test').innerHTML = this.responseText;
-                var obj = document.getElementById("test");
-                obj.scrollTop = obj.scrollHeight;
+                // var obj = document.getElementById("test");
+                // obj.scrollTop = obj.scrollHeight;
 
               }
 
             };
-            xmlhttp.open("GET", "async_chat.php?user=" + user , true);
-            xmlhttp.send();
+            if (server_id == 1) {
+              var serverid = '<?php echo $serverid ?>';
+              xmlhttp.open("GET", "async_server_chat.php?sid=" + serverid , true);
+              xmlhttp.send();
+            }
+            else{
+
+              xmlhttp.open("GET", "async_chat.php?user=" + user , true);
+              xmlhttp.send();
+            }
       }
       function send(){
         var cid = '<?php echo $idd ?>';
-        if (cid == 0) {
+        var server_id = <?php echo $serverConvo ?>;
+        // document.write(server_id);
+        if (cid == 0 && server_id == 0) {
           return;
         }
         var msg = document.getElementById('chat').value;
@@ -281,16 +312,20 @@ if (!isset($_SESSION['user'])) {
                 // document.getElementById('test').innerHTML = this.responseText;
                  document.getElementById('chat').value = "";
 
-              } else if ( xmlhttp.status >= 402 && xmlhttp.status <= 420 ) {
-
-                           alert('error');
-
-                        }
-
+              }
 
             };
+            if (server_id == 1) {
+              var serverid = '<?php echo $serverid ?>';
+              // document.write('sedning fir server');
+              xmlhttp.open("GET", "async_send_server.php?msg="+ msg + "&sid=" + serverid , true);
+              xmlhttp.send();
+          }else{
             xmlhttp.open("GET", "async_send.php?msg="+ msg + "&cid=" + cid , true);
             xmlhttp.send();
+          }
+
+
       }
 
     </script>

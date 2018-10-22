@@ -16,7 +16,8 @@ if (isset($_GET['error'])) {
       <link rel="stylesheet" href="style.css">
   </head>
   <body onload="check()">
-    <div class="bg">
+    <img src="assets/login_logo2.png" id="loginlogo" alt="">
+    <div class="bg" id="bg">
       <div class="container">
         <div class="row">
           <div class="col-sm-12">
@@ -30,7 +31,7 @@ if (isset($_GET['error'])) {
                 <input type="password" name="password" value="" placeholder="Password">
                 <div class="">
                   <input type="submit" id="btn" name="" value="Login" class="">
-                  <span style="color: rgb(114, 137, 218);" id=" ">I am an Admin</span> <input type="checkbox" name="admincheck" value="admin">
+                  <span style="color: rgb(114, 137, 218);" id=" ">I am an Admin</span> <input type="checkbox"  name="admincheck" value="admin">
                 </div>
               </form>
               <span id="linktext">
@@ -56,7 +57,18 @@ if (isset($_GET['error'])) {
         if (msg == '2') {
           document.getElementById('msg').innerHTML = "You are not logged in!";
         }
-
+        if (msg == '3') {
+          document.getElementById('msg').innerHTML = "You have been banned from UMT | SOCIAL";
+        }
+        randomize();
+      }
+      function randomize(){
+        var x = Math.floor((Math.random() * 10) + 1);
+        if (x > 5) {
+          document.getElementById('bg').style.backgroundImage= "url('assets/bg2.jpg')"
+        }else{
+document.getElementById('bg').style.backgroundImage= "url('assets/bg3.png')"
+        }
       }
     </script>
   </body>

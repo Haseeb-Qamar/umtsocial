@@ -1,6 +1,13 @@
-html,body,.container-fluid,.row{
-  height: 97%;
-  background-color: rgba(49, 51, 57, 1);
+:root{
+  --dark: rgb(32, 34, 37) ;
+  --medium: rgb(47, 49, 54) ;
+  --light: rgb(54, 57, 63) ;
+  --medium-accent: #2A2C31 ;
+  --selected-medium :#42464D;
+}
+html,body,.container-fluid{
+  height: 100%;
+  background-color: rgba(40, 43, 48, 1);
   border: none;
 
     /* -webkit-transform: scale(2.0);
@@ -8,6 +15,9 @@ html,body,.container-fluid,.row{
             transform: scale(1); */
 
 
+}
+.row{
+  height: 90%;
 }
 .circle{
 
@@ -27,6 +37,7 @@ html,body,.container-fluid,.row{
 .col-sm-7,.col-sm-8, .col-sm-10 {
   padding: 0px;
   background-color: rgba(49, 51, 57, 1);
+  /* background-color: var(--light); */
   height: 100%;
   color: white;
   /* border: 1px dashed yellow; */
@@ -38,13 +49,14 @@ html,body,.container-fluid,.row{
   /* border: 1px solid pink; */
   height: 50%;
   background-color: rgb(40, 43, 48);
+  /* background-color: var(--medium); */
   color: white;
   overflow-y: auto;
   /* border: 1px solid white; */
 }
 .row{
   /* border: 1px solid black; */
-  background-color: yellow;
+
   height: 100%;
 
 }
@@ -58,17 +70,41 @@ html,body,.container-fluid,.row{
   position: relative;
   /* border: 1px dotted brown; */
   background-color: rgb(40, 43, 48);
+  /* background-color: var(--medium); */
   height: 50%;
 }
 #logout{
   position: absolute;
+  border: 1px solid red;
   left: 0px;
-
   /* border: 1px dashed teal; */
   background-color: rgba(49, 51, 57, 1);
   bottom: 0px;
   width: 100%;
-  height: 5%;
+  height: 40%;
+}
+.loggedin{
+  padding: 0px;
+  display: block;
+}
+#user{
+  font-size: 14px;
+}
+#email{
+  color: rgba(117, 117, 117, 1);
+  font-size: 10px;
+}
+.userinfo{
+  position: absolute;
+  /* border: 1px dotted teal; */
+  background-color: rgb(30, 33, 38);
+  bottom: 0%;
+  padding: 2%;
+  left: 0px;
+  z-index: 2;
+  width: 100%;
+  height: 15%;
+
 }
 #logout a:hover{
   text-decoration: none;
@@ -135,31 +171,63 @@ html,body,.container-fluid,.row{
   font-size: 28px;
 
 }
+#emptyicon{
+  width: 50%;
+}
 .sender{
-  /* background-color: pink;
-  padding: 10px;
-  border: 1px solid black;
-  bottom: 10px;
-  border-radius: 1em; */
+  /* background-color: pink; */
+
+  font-size: 12px;
+color :rgb(114, 137, 218);
+
+}
+.chatwrapper{
+  border: 1px solid var(--dark);
+  display: inline-block;
+  background-color: #282B30;
+  border-radius: 1em;
+  padding: 1%;
+  margin-left: 1%;
+  margin-bottom: 1%;
+
+}
+.chatwrapper1{
+  border: 1px solid rgb(114, 137, 218);
+  display: inline-block;
+  background-color: #282B30;
+  border-radius: 1em;
+  padding: 1%;
+  margin-left: 1%;
+  margin-bottom: 1%;
+
 }
 .chatmessage{
- /* border: 1px solid white; */
- margin-left: 10px;
+ /* border: 1px solid var(--dark); */
+
+color: rgba(117, 117, 117, 1);;
+ background-color: #282B30;
+ font-size: 14px;
+
+
+
+
 }
 .chatbox{
-/* width: 50% ; */
+width: 90% ;
 /* border: 1px dotted green; */
-padding: 20px;
+
+
 /* border: 1px solid pink; */
   color: white;
 
 }
 .fullmessage{
-background-color: rgb(40, 43, 48);
-padding: 20px;
+/* background-color: rgb(11, 64, 210); */
+
 /* border: 1px solid blue; */
-width: 1px;
-border-radius: 1em;
+width: 100%;
+
+/* border-radius: 1em; */
 }
 .fullmessage1{
   background-color: rgb(140, 143, 148);
@@ -170,42 +238,137 @@ border-radius: 1em;
 }
 .theconvos{
   /* background-color: azure; */
-
+  /* border: 1px dotted red; */
+  width: 100%;
   height: 10%;
 }
 .theconvo{
-  position: relative;
+  /* position: relative; */
   /* border: 1px dotted blue; */
   padding-top: 5%;
   height: 85%;
   z-index: -3;
-  overflow: auto;
+
 }
 .output{
   /* background-color: gray; */
   overflow-y: auto;
 }
 #time{
-  font-size: 10px;
+  font-size: 8px;
   margin-top: 2%;
 }
 #test {
     max-height: 100%;
+
     overflow: auto;
 }
 .servers{
-  border: 1px dotted teal;
-  height: 100%;
+  /* background-color: var(--dark); */
+  height: 50%;
 }
 #servers{
   font-size: 12px;
 
 }
+.server_members{
+  height: 50%;
+  color: rgba(117, 117, 117, 1);
+}
+.server_member_name{
+
+}
+a{
+  color: rgb(114, 137, 218);
+}
+/* Settings Tab */
+.usersettings{
+color: rgba(117, 117, 117, 1);
+}
+.colcontainer{
+  height: 100%;
+  padding-left: 2%;
+  background-color: rgba(72, 75, 81, 1);
+}
+.userdetails{
+  color: white;
+  font-size: 22px;
+
+}
+.settingoptions{
+  display: block;
+  font-size: 12px;
+}
+.userdata{
+  background-color: rgba(48, 50, 54, 1);
+  color: rgb(140, 143, 148);
+  padding: 2%;
+  /* border: 1px solid red; */
+  width: 98%;
+
+}
+.userdata input[type=text]{
+border: none;
+outline: none;
+background-color: inherit;
+color: inherit;
+}
+.editbtn{
+  position: relative;
+  float: right;
+  padding: 5px;
+  cursor: pointer;
+  background-color: blue;
+  color: white;
+  border-radius: .5em;
+  font-size: 12px;
+}
+.textholders{
+  color: white;
+  font-size: 12px;
+}
+.textdetails{
+  font-size: 16px;
+}
+/* Explore Tab */
+.explorebox{
+  color: white;
+  /* border: 1px dashed teal; */
+}
+.explorebox input[type=text]{
+  border: 1px solid rgb(114, 137, 218);
+  padding: 5px;
+  color: white;
+  outline: none;
+  background-color: rgb(48,50,51);
+}
+.headers{
+  display: block;
+
+}
+.resultbox{
+  /* border: 1px dashed yellow; */
+  color: white;
+}
+#async_entries{
+  font-size: 10px;
+  display: block;
+}
+.table td{
+  border: none;
+}
+#async{
+
+}
 /* Media Query */
 
 @media screen and (max-width: 1366px) {
-  html,body,.container-fluid,.row{
-    height: 96%;
+  html,body,.container-fluid{
+    height: 100%;
+  }
+  .row{
+    height: 90%;
+
   }
   .large{
     font-size: 18px;
@@ -222,6 +385,7 @@ border-radius: 1em;
     font-size: 16px;
   }
   .onlinecol{
+
     font-size: 12px;
   }
   .online{
@@ -231,9 +395,10 @@ border-radius: 1em;
 
   }
   .userchats{
+
     font-size: 12px;
   }
-  .chatbox{
+  /* .chatbox{
     font-size: 14px;
     padding: 10px;
 
@@ -263,11 +428,14 @@ border-radius: 1em;
     font-size: 8px;
     margin-top: 1%;
 
-  }
+  } */
   .sender1{
 
   }
   #servers{
 font-size: 12px;
+  }
+  .server_member_name{
+  font-size: 12px;
   }
 }
